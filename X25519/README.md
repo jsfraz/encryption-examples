@@ -3,7 +3,7 @@
 - each program generates 256 bit public key and outputs it as [Base64](https://en.wikipedia.org/wiki/Base64) encoded bytes
 - user copies each public key to other program's input
 - each program generates shared 256 bit secret key and outputs it as Base64 encoded bytes
-- both keys **MUST** match
+- both shared secrets **MUST** match
 ## Example output
 ### .NET Core
 ```
