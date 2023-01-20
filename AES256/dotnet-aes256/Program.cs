@@ -14,16 +14,13 @@ internal class Program
         rnd.NextBytes(key);
         Console.WriteLine("Random 256 bit key: " + Convert.ToBase64String(key));
         //encrypt
-        byte[] encrypted = Tools.Encrypt(clearText!, key);
+        byte[] encrypted = Encrypt(clearText!, key);
         Console.WriteLine("Encrypted input (base64 bytes): " + Convert.ToBase64String(encrypted));
         //decrypt
-        string decrypted = Tools.Decrypt(encrypted, key);
+        string decrypted = Decrypt(encrypted, key);
         Console.WriteLine("Decrypted input: " + decrypted);
     }
-}
 
-public class Tools
-{
     //encrypt (md5 hash of key as IV)
     public static byte[] Encrypt(string plainText, byte[] key)
     {
@@ -38,7 +35,7 @@ public class Tools
 
             //set the parameters with out keyword
             aesAlgorithm.Key = key;
-            aesAlgorithm.IV = Tools.CreateMD5(key);
+            aesAlgorithm.IV = CreateMD5(key);
 
             //create encryptor object
             ICryptoTransform encryptor = aesAlgorithm.CreateEncryptor();
@@ -68,7 +65,7 @@ public class Tools
         using (Aes aesAlgorithm = Aes.Create())
         {
             aesAlgorithm.Key = key;
-            aesAlgorithm.IV = Tools.CreateMD5(key);
+            aesAlgorithm.IV = CreateMD5(key);
 
             /*
             Console.WriteLine($"Aes Cipher Mode : {aesAlgorithm.Mode}");
