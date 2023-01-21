@@ -8,11 +8,10 @@ internal class Program
         Console.WriteLine("Input:");
         string? clearText = Console.ReadLine();
         //random 32 byte (256 bits) key (you can use your own)
-        //https://learn.microsoft.com/en-us/dotnet/api/system.random.nextbytes?view=net-6.0
         Random rnd = new Random();
-        Byte[] key = new Byte[32];
+        byte[] key = new byte[32];
         rnd.NextBytes(key);
-        Console.WriteLine("Random 256 bit key: " + Convert.ToBase64String(key));
+        Console.WriteLine("Random 256 bit key (base64 bytes): " + Convert.ToBase64String(key));
         //encrypt
         byte[] encrypted = Encrypt(clearText!, key);
         Console.WriteLine("Encrypted input (base64 bytes): " + Convert.ToBase64String(encrypted));

@@ -1,5 +1,5 @@
 # Encryption examples
-- repository containing encryption examples in different languages
+- encryption examples in different languages
 ## Progress
 |               | **AES256** | **X25519** |
 |---------------|------------|------------|
