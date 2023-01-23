@@ -58,7 +58,7 @@ internal class Program
         }
     }
 
-    //dencrypt (md5 hash of key as IV)
+    //encrypt (md5 hash of key as IV)
     public static string Decrypt(byte[] encrypted, byte[] key)
     {
         using (Aes aesAlgorithm = Aes.Create())

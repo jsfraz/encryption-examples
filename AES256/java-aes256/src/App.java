@@ -46,7 +46,7 @@ public class App {
         return null;
     }
 
-    // dencrypt (md5 hash of key as IV)
+    // encrypt (md5 hash of key as IV)
     public static String decrypt(byte[] encrypted, byte[] key) {
         try {
             byte[] iv = createMD5(key);
