@@ -57,11 +57,11 @@ public class App {
 
     // decrypt
     public static void decryptExample() {
-        //encrypted input
+        // encrypted input
         System.out.println();
         System.out.println("Encrypted input (base64 bytes):");
         String input = System.console().readLine();
-        //key
+        // key
         System.out.println();
         System.out.println("256 bit key (base64 bytes):");
         String base64Key = System.console().readLine();
