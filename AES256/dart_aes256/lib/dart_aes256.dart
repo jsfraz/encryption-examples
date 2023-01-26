@@ -1,8 +1,16 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
 
 //encrypting/decrypting stolen from https://github.com/leocavalcante/encrypt/blob/5.x/example/aes.dart
+
+//create random key
+List<int> generateRandomKey() {
+  //random 32 byte (256 bits) key (you can use your own)
+  Random rnd = Random();
+  return List<int>.generate(32, (i) => rnd.nextInt(256));
+}
 
 //encrypter
 Encrypter getEncrypter(List<int> key) {

@@ -4,20 +4,78 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        Console.WriteLine("1. Generate random 256 bit key");
+        Console.WriteLine("2. Encrypt");
+        Console.WriteLine("3. Decrypt");
+        string? option = Console.ReadLine();
+        switch (option)
+        {
+            case "1":
+                GenerateKeyExample();
+                break;
+            case "2":
+                EncryptExample();
+                break;
+            case "3":
+                DecryptExample();
+                break;
+        }
+    }
+
+    //create key
+    public static void GenerateKeyExample()
+    {
+        byte[] key = GenerateRandomKey();
+        Console.WriteLine();
+        Console.WriteLine("Random 256 bit key (base64 bytes):");
+        Console.WriteLine(Convert.ToBase64String(key));
+    }
+
+    //encrypt
+    public static void EncryptExample()
+    {
         //your text
+        Console.WriteLine();
         Console.WriteLine("Input:");
         string? clearText = Console.ReadLine();
-        //random 32 byte (256 bits) key (you can use your own)
+        //key
+        Console.WriteLine();
+        Console.WriteLine("256 bit key (base64 bytes):");
+        String? base64Key = Console.ReadLine();
+        byte[] key = Convert.FromBase64String(base64Key!);
+        //encrypt
+        byte[] encrypted = Encrypt(clearText!, key);
+        Console.WriteLine();
+        Console.WriteLine("Encrypted input (base64 bytes):");
+        Console.WriteLine(Convert.ToBase64String(encrypted));
+    }
+
+    //decrypt
+    public static void DecryptExample()
+    {
+        //encrypted input
+        Console.WriteLine();
+        Console.WriteLine("Encrypted input (base64 bytes):");
+        string? input = Console.ReadLine();
+        //key
+        Console.WriteLine();
+        Console.WriteLine("256 bit key (base64 bytes):");
+        string? base64Key = Console.ReadLine();
+        byte[] key = Convert.FromBase64String(base64Key!);
+        //decrypt
+        string decrypted = Decrypt(Convert.FromBase64String(input!), key);
+        Console.WriteLine();
+        Console.WriteLine("Decrypted input:");
+        Console.WriteLine(decrypted);
+    }
+
+    //random 256 bits key
+    public static byte[] GenerateRandomKey()
+    {
         Random rnd = new Random();
         byte[] key = new byte[32];
         rnd.NextBytes(key);
-        Console.WriteLine("Random 256 bit key (base64 bytes): " + Convert.ToBase64String(key));
-        //encrypt
-        byte[] encrypted = Encrypt(clearText!, key);
-        Console.WriteLine("Encrypted input (base64 bytes): " + Convert.ToBase64String(encrypted));
-        //decrypt
-        string decrypted = Decrypt(encrypted, key);
-        Console.WriteLine("Decrypted input: " + decrypted);
+        return key;
     }
 
     //encrypt (md5 hash of key as IV)

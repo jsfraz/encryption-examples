@@ -2,7 +2,6 @@
 - generate 512, 1024, 2048, 4096 bit key and save it with PEM format using the PKCS#8 padding
 - encrypt using RSA public key
 - decrypt using RSA private key
-- generate keypair, encrypt and decrypt
 ## Example output
 ### Generate and save keys
 ```
@@ -42,7 +41,7 @@ hYmVPASEKmbo8uzs3oty+lNnQqyFpWspiYRKLaapYW8di3z9Vry8Ib4wGW4WDPvW
 FUGZx+ZwrcQ4bg==
 -----END PRIVATE KEY-----
 ```
-### Encrypt using RSA public key
+### Encrypt
 ```
 Input:
 Hello, World!
@@ -53,32 +52,14 @@ Public key PEM file path (PKCS#8 standard):
 Encrypted output (base64 bytes):
 e2fSnxzQWLgN8aIS+RW48EHxUioPxYj5exL7cBhlGCreez7wk821kUkwDuZ0fXLBfhgf3QWQhpz6lhz892iHgAcgVA1lJ+3YSRrNBghseAj9H2KzsHFXAcvco7Vpz63rh6v9l7efR12T4iej4UiLenvEkXuBAj7lgkggovJXqgY=
 ```
-### Decrypt using RSA private key
+### Decrypt
 ```
 Encrypted input (base64 bytes):
 e2fSnxzQWLgN8aIS+RW48EHxUioPxYj5exL7cBhlGCreez7wk821kUkwDuZ0fXLBfhgf3QWQhpz6lhz892iHgAcgVA1lJ+3YSRrNBghseAj9H2KzsHFXAcvco7Vpz63rh6v9l7efR12T4iej4UiLenvEkXuBAj7lgkggovJXqgY=
 
 Private key PEM file path (PKCS#8 standard):
-/home/razj/privateKey.pem
+/home/user/privateKey.pem
 
 Decrypted output (base64 bytes):
-Hello, World!
-```
-### Generate keypair, encrypt and decrypt
-```
-Choose key size:
-1. 512 bit
-2. 1024 bit
-3. 2048 bit
-4. 4096 bit
-2
-
-Input:
-Hello, World!
-
-Encrypted input (base64 bytes):
-YOLUHJuL6LexYrU2+zmNO+ye1a/X7ZFTLFS+Hme0LU5kxKAgQP9JbGyAeyqAk6ix4zyWxOC8+qgIEU4umMfYJUsbkQsquo6ZJufcDoC7w32NFJUQxsXuddKrzEa6gbACzyOVFl3JCV4BoMzpbn1EBQW5x8IEj9df36Out1eVT9o=
-
-Decrypted output:
 Hello, World!
 ```
