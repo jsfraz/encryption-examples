@@ -12,25 +12,6 @@ public class App {
     // stolen from
     // https://howtodoinjava.com/java/java-security/aes-256-encryption-decryption/
     public static void main(String[] args) throws Exception {
-        /*
-         * // your text
-         * System.out.println("Input:");
-         * String clearText = System.console().readLine();
-         * // random 32 byte (256 bits) key (you can use your own)
-         * byte[] key = new byte[32];
-         * Random random = new Random();
-         * random.nextBytes(key);
-         * System.out.println("Random 256 bit key (base64 bytes): " +
-         * Base64.getEncoder()
-         * .encodeToString(key));
-         * // encrypt
-         * byte[] encrypted = encrypt(clearText, key);
-         * System.out.println("Encrypted input (base64 bytes): " + Base64.getEncoder()
-         * .encodeToString(encrypted));
-         * // decrypt
-         * String decrypted = decrypt(encrypted, key);
-         * System.out.println("Decrypted input: " + decrypted);
-         */
         System.out.println("1. Generate random 256 bit key");
         System.out.println("2. Encrypt");
         System.out.println("3. Decrypt");
