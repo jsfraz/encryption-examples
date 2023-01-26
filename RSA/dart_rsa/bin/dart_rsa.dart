@@ -78,8 +78,8 @@ void encryptExample() {
   print('');
   print('Public key PEM file path (PKCS#8 standard):');
   String? keyPath = stdin.readLineSync();
-  final publicKey =
-      CryptoUtils.rsaPublicKeyFromPem(File(keyPath!).readAsStringSync());
+  final publicKey = CryptoUtils.rsaPublicKeyFromPem(
+      File('${keyPath!}/publicKey.pem').readAsStringSync());
   //encrypt
   Uint8List encrypted =
       rsaEncrypt(publicKey, utf8.encode(clearText!) as Uint8List);
@@ -97,8 +97,8 @@ void decryptExample() {
   print('');
   print('Private key PEM file path (PKCS#8 standard):');
   String? keyPath = stdin.readLineSync();
-  final privateKey =
-      CryptoUtils.rsaPrivateKeyFromPem(File(keyPath!).readAsStringSync());
+  final privateKey = CryptoUtils.rsaPrivateKeyFromPem(
+      File('${keyPath!}/privateKey.pem').readAsStringSync());
   //decrypt
   Uint8List decrypted = rsaDecrypt(privateKey, base64.decode(cipherText!));
   print('');
