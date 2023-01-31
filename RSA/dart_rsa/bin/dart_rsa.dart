@@ -50,7 +50,7 @@ void generateAndSaveKeysExample() {
       break;
   }
   print('');
-  print('Where would you like to save genearted keys?');
+  print('Where would you like to save generated keys?');
   String? keysPath = stdin.readLineSync();
   final keypair = generateKeypair(keySize);
   final publicKey = keypair.publicKey as RSAPublicKey;
@@ -78,8 +78,8 @@ void encryptExample() {
   print('');
   print('Public key PEM file path (PKCS#8 standard):');
   String? keyPath = stdin.readLineSync();
-  final publicKey = CryptoUtils.rsaPublicKeyFromPem(
-      File('${keyPath!}/publicKey.pem').readAsStringSync());
+  final publicKey =
+      CryptoUtils.rsaPublicKeyFromPem(File(keyPath!).readAsStringSync());
   //encrypt
   Uint8List encrypted =
       rsaEncrypt(publicKey, utf8.encode(clearText!) as Uint8List);
@@ -102,6 +102,6 @@ void decryptExample() {
   //decrypt
   Uint8List decrypted = rsaDecrypt(privateKey, base64.decode(cipherText!));
   print('');
-  print('Decrypted output (base64 bytes):');
+  print('Decrypted output:');
   print(utf8.decode(decrypted));
 }
