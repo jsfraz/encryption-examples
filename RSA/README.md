@@ -12,7 +12,7 @@ Choose key size:
 4. 4096 bit
 2
 
-Where would you like to save genearted keys?
+Where would you like to save generated keys?
 /home/user
 
 Generated public key (PEM format using the PKCS#8 standard):
@@ -60,6 +60,6 @@ e2fSnxzQWLgN8aIS+RW48EHxUioPxYj5exL7cBhlGCreez7wk821kUkwDuZ0fXLBfhgf3QWQhpz6lhz8
 Private key PEM file path (PKCS#8 standard):
 /home/user/privateKey.pem
 
-Decrypted output (base64 bytes):
+Decrypted output:
 Hello, World!
 ```
